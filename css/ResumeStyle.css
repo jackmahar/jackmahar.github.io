@@ -1,0 +1,227 @@
+/* This is the style sheet for the Resume page  */
+:root{
+  /* variables for font size/style*/
+  --base-size:1em;
+  --type-scale:1.333;
+  --h5:calc(var(--base-size) * var(--type-scale));
+  --h4:calc(var(--h5) * var(--type-scale));
+  --h3:calc(var(--h4) * var(--type-scale));
+  --h2:calc(var(--h3) * var(--type-scale));
+  --h1:calc(var(--h2) * var(--type-scale));
+  --fontFamily:'Quicksand', sans-serif;
+  /* end of fonts */
+
+  /* these are all the colors in my color pallete listed from lightest to darkest */
+  --colorlightest1:rgba(248, 249, 250);
+  --colorlightest2:rgba(233, 236, 239);
+  --colorlightest3:rgba(222, 226, 230);
+  --colorMidLight:rgba(206, 212, 218);
+  --colorMidDark:rgba(173, 181, 189);
+  --colorMidDarker:rgba(108, 117, 125);
+  --colorDark1:rgba(73, 80, 87);
+  --colorDark2:rgba(52, 58, 64);
+  --colorDark3:rgba(33, 37, 41);
+  /* end of color pallete */
+
+  /* this variable is for the background gradient. to change the gradient colors just change the variables after "to bottom right" */
+  --MainGradient:linear-gradient(to bottom right, var(--colorDark3), var(--colorMidDark));
+
+
+
+  --a:calc(var(--h4) * var(--type-scale));
+
+}
+*,*:before,*:after{
+  box-sizing: border-box;
+}
+
+h5{ font-size:var(--h5);}
+h4{ font-size:var(--h4);}
+h3{ font-size:var(--h3);}
+h2{ font-size:var(--h2);}
+h1{ font-size:var(--h1);}
+p{ font-size:var(--h4);}
+ul{font-size:var(--h4);}
+p,h1,h2,h3,h4,h5{
+  margin-left:20px;
+  margin-right:20px;
+
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  margin:0px;
+  padding:0px;
+  font-family: var(--fontFamily);
+  background: var(--colorDark3);
+  color: var(--colorlightest3);
+}
+/* content in resume  */
+main{
+  width:50%;
+  height:100%;
+  background:var(--colorlightest1);
+  margin: 0 auto;
+  color:var(--colorDark3);
+  padding:30px;
+  max-width:100%;
+
+}
+.contact-info{
+  text-align: center;
+}
+.h2s{
+  text-decoration: underline;
+}
+.resume-container{
+  text-align: center;
+}
+
+/* nav stuff */
+.container-top{
+  height:110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--colorDark1);
+  margin-bottom: 20px;
+}
+.link-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
+.landing-links{
+  z-index: 110;
+}
+.brand-image{
+  background: var(--colorDark1);
+  display: block;
+  height:100px;
+  width:100px;
+  max-width: 100%;
+  height:auto;
+  border-radius: 20px;
+}
+.brand{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin:80px;
+}
+
+.link-container > a{
+  font-size:var(--a);
+  color:var(--colorlightest3);
+  padding:10px;
+  text-decoration: none;
+  margin-right:10px;
+}
+.link-container > a:hover{
+  text-decoration:none;
+  transition: all .3 ease;
+}
+
+.link-container a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  /*   transform: rotate(-45deg); */
+  transition: 0.5s ease;
+}
+
+
+.link-container > a:after {
+  content: "";
+  position: absolute; /*make sure to put relative on the nav a */
+  width: 100%;
+  height: 3px;
+  top: 100%;
+  left: 0;
+  background-color: var(--colorlightest3);
+  transition: 0.5s ease;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+.link-container > a:hover:after {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+.resume-container a{
+  color:white;
+}
+/* end nav stuff */
+
+footer{
+  font-weight: bolder;
+  font-size: 1.2em;
+  width: 100%;
+  height:200px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  bottom:0;
+  background:var(--colorDark1);
+  color:var(--colorlightest3);
+  margin-top:20px;
+}
+.footer-email-link{
+  color:var(--colorlightest1)
+}
+@media screen and (max-width:576px){
+/* nav stuff for media query */
+  .container-top{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  .link-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+  }
+
+  .brand-image{
+    display: block;
+    height:100px;
+    width:100px;
+    max-width: 100%;
+    height:auto;
+    border-radius: 20px;
+  }
+  .brand{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:80px;
+  }
+  /* end nav stuff for media query */
+
+main{
+  display:none;
+
+}
+.resume-container a{
+  display: block;
+  color:white;
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: fixed;
+  bottom:0;
+}

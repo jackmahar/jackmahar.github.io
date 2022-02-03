@@ -1,0 +1,278 @@
+/* This is the style sheet for the landing page  */
+:root{
+  /* variables for font size/style*/
+  --base-size:1em;
+  --type-scale:1.333;
+  --h5:calc(var(--base-size) * var(--type-scale));
+  --h4:calc(var(--h5) * var(--type-scale));
+  --h3:calc(var(--h4) * var(--type-scale));
+  --h2:calc(var(--h3) * var(--type-scale));
+  --h1:calc(var(--h2) * var(--type-scale));
+  --fontFamily:'Quicksand', sans-serif;
+  /* end of fonts */
+
+  /* these are all the colors in my color pallete listed from lightest to darkest */
+  --colorlightest1:rgba(248, 249, 250);
+  --colorlightest2:rgba(233, 236, 239);
+  --colorlightest3:rgba(222, 226, 230);
+  --colorMidLight:rgba(206, 212, 218);
+  --colorMidDark:rgba(173, 181, 189);
+  --colorMidDarker:rgba(108, 117, 125);
+  --colorDark1:rgba(73, 80, 87);
+  --colorDark2:rgba(52, 58, 64);
+  --colorDark3:rgba(33, 37, 41);
+  /* end of color pallete */
+
+  /* this variable is for the background gradient. to change the gradient colors just change the variables after "to bottom right" */
+  --MainGradient:linear-gradient(to bottom right, black, var(--colorDark1));
+
+
+
+  --a:calc(var(--h4) * var(--type-scale));
+
+}
+
+h5{ font-size:var(--h5);}
+h4{ font-size:var(--h4);}
+h3{ font-size:var(--h3);}
+h2{ font-size:var(--h2);}
+h1{ font-size:var(--h1);}
+
+
+body{
+background-image: var(--MainGradient);
+font-family: var(--fontFamily);
+padding:0px;
+margin:0px;
+height:100vh;
+}
+main{
+  margin:0px;
+  padding:0px;
+  display: block;
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.1' fill='%23FFFFFF' cx='45' cy='45' r='5'/%3E%3Cg fill='%23FFFFFF' fill-opacity='0.1'%3E%3Ccircle cx='0' cy='90' r='5'/%3E%3Ccircle cx='90' cy='90' r='5'/%3E%3Ccircle cx='90' cy='0' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3C/g%3E%3C/svg%3E"); */
+
+}
+main::after{
+  content: "";
+  background-image: url("../Photos/dots3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .6;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  position: absolute;
+  z-index: -1;
+}
+
+
+/* links stuff */
+
+a{
+  font-size:var(--a);
+  color:white;
+  padding:10px;
+  text-decoration: none;
+
+}
+a:hover{
+  text-decoration:underline;
+  transition: all .3 ease;
+}
+
+.link-container a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+
+  /*   transform: rotate(-45deg); */
+  transition: 0.5s ease;
+}
+
+
+a:after {
+  content: "";
+  position: absolute; /*make sure to put relative on the nav a */
+  width: 100%;
+  height: 3px;
+  top: 100%;
+  left: 0;
+  background-color: var(--colorlightest1);
+  transition: 0.5s ease;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+a:hover:after {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+/* end link stuff */
+
+.Container-all{
+  position: relative;
+  display:flex;
+  height:100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left:20px;
+}
+.Container-all > h1,h2,a{
+  color:#fff;
+}
+.link-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+h1,h2{
+  margin-left:10px;
+
+}
+h1{
+  margin-bottom:0;
+}
+/* stuff for cube on landing page */
+.cube-wrap{
+  position: fixed;
+  top:30%;
+  left:50%;
+  /* margin-top:-56px;
+  margin-left: -85px; */
+  transform: translate(-50%, -50%);
+}
+.cube {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transform: scaleX(0.7) scaleY(0.7) scaleZ(0.7) rotateX(-32deg) rotateY(-45deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+  margin: auto;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.cube > div {
+    position: absolute;
+    box-sizing: border-box;
+    /* padding: 10px; */
+    line-height: 200px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: bold;
+}
+
+
+.cube-wrap {
+  margin-top: 250px;
+  perspective: 375px;
+  perspective-origin: 46% 55%;
+}
+
+
+
+.box {
+    margin: auto auto;
+    min-height: 600px;
+}
+
+
+
+.top{
+ -webkit-transform: rotateX(
+-270deg) translateY(-100px);
+    transform: rotateX(
+-270deg) translateY(-100px);
+    transform-origin: top center;
+    background-color:var(--colorMidDark);
+}
+
+
+
+.bottom{
+  -webkit-transform: rotateX(
+270deg) translateY(100px);
+    transform: rotateX(
+270deg) translateY(100px);
+    transform-origin: bottom center;
+    background-color:var(--colorMidDark);
+}
+
+
+
+.left{
+      -webkit-transform: rotateY(
+270deg) translateX(-100px);
+    transform: rotateY(
+270deg) translateX(-100px);
+    transform-origin: center left;
+    background-color: var(--colorDark3);
+}
+
+
+
+.right{
+      -webkit-transform: rotateY(
+-270deg) translateX(100px);
+    transform: rotateY(
+-270deg) translateX(100px);
+    transform-origin: top right;
+    background-color: var(--colorDark2);
+}
+
+
+
+.front{
+  -webkit-transform: translateZ(100px);
+    transform: translateZ(100px);
+    background-color:var(--colorDark1);
+}
+
+
+
+.back{
+  -webkit-transform: translateZ(-100px) rotateY(
+180deg);
+    transform: translateZ(-100px) rotateY(
+180deg);
+background-color:var(--colorDark1);
+}
+
+
+
+.cube-wrap:hover{
+   transform:rotate(180deg);
+  transition: all 2s ease;
+}
+.one:hover{
+   transform:rotate(180deg);
+  transition: all 2s ease;
+  cursor:pointer;
+}
+
+
+/* end of stuff for cube on landing page */
+@media screen and (max-width:576px){
+
+.cube-wrap{
+  display: none;
+}
+
+
+
+
+
+
+}
